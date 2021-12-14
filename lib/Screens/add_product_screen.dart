@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pharma/Models/product.dart';
 import 'package:pharma/constant.dart';
 import 'package:pharma/widgets/drop_downfeild.dart';
+import 'package:provider/provider.dart';
 
 class AddProductScreen extends StatelessWidget {
   static const routeName = '/addproduct';
@@ -196,15 +197,22 @@ class AddProductScreen extends StatelessWidget {
               ),
               //4
               DropDownField(),
-              Container(
-                width: double.infinity,
-                margin: EdgeInsets.only(top: 20),
-                child: ElevatedButton.icon(
-                  onPressed: trySubmit,
-                  icon: Icon(Icons.add_business),
-                  label: Text('Add product'),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  width: double.infinity,
+                  margin: EdgeInsets.only(top: 20),
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      trySubmit();
+                      // Provider.of<Products>(context, listen: false)
+                      //     .AddProduct(newProduct);
+                    },
+                    icon: Icon(Icons.add_business),
+                    label: Text('Add product'),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(kPrimaryColor),
+                    ),
                   ),
                 ),
               ),
